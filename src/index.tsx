@@ -1,15 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { RecoilRoot } from "recoil";
+import "react-toastify/dist/ReactToastify.css";
+import "remixicon/fonts/remixicon.css";
+import { ToastContainer, Slide } from "react-toastify";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <RecoilRoot>
+      <App />
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        style={{ zIndex: 2765347625347623 }}
+        hideProgressBar
+        closeOnClick
+        pauseOnHover
+        transition={Slide}
+        theme="dark"
+        limit={1}
+      />
+    </RecoilRoot>
   </React.StrictMode>
 );
 
