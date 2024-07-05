@@ -37,10 +37,6 @@ const FieldLabel = styled.label`
   text-transform: capitalize;
 `;
 
-const FieldField = styled.input`
-  font-size: 16px;
-`;
-
 const TransactionIllustration = styled.div`
   width: 240px;
   height: 240px;
@@ -60,25 +56,7 @@ export const AddTransactionBody = () => {
       return (
         <FormFieldWrapper key={field.name}>
           <FieldLabel>{field.label}</FieldLabel>
-          {/* <FieldField placeholder={field.placeholder} /> */}
           <Fragment>{getFormFields(field, ref, handleChange)}</Fragment>
-
-          {/* <InputField
-            value={""}
-            handleChange={() => ({})}
-            id={"id"}
-            name=""
-            placeholder=""
-            type={"text"}
-            isError={true}
-            errorMessage="something went wrong"
-            inputRef={ref}
-          />
-          <Dropdown
-            handleChangeCountry={() => ({})}
-            options={[] as any}
-            value={{}}
-          /> */}
         </FormFieldWrapper>
       );
     });

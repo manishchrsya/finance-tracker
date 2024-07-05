@@ -1,4 +1,4 @@
-import type { ITable, ITableCellFormat, ITableHeaderCell } from "./types";
+import type { ITable, ITableCellFormat } from "./types";
 
 import { FC, useMemo } from "react";
 import styled from "styled-components";
@@ -78,7 +78,6 @@ export const Table: FC<ITable> = ({ header, rows = [] }) => {
     return renderingRows.map((rowData: any, index: number) => (
       <TableRow key={`renderRows__${index}`}>
         {header.map(({ key, format }: any, idx: number) => {
-          // const value = rowData[key as keyof any];
           let value = rowData[key as keyof any];
           if (value) {
             switch (format as ITableCellFormat) {
@@ -86,9 +85,6 @@ export const Table: FC<ITable> = ({ header, rows = [] }) => {
                 break;
               case "string":
                 break;
-              // case "date":
-              //   value = getDate(value);
-              //   break;
               case "jsx":
                 value = value();
                 break;
@@ -116,43 +112,3 @@ export const Table: FC<ITable> = ({ header, rows = [] }) => {
     </TableWrapper>
   );
 };
-
-// const renderRows = useMemo(
-//   () =>
-//     tableRows.map((item, index) => {
-//       return (
-//         <tr key={`${index}-item`}>
-//           {column.map(({ key, format }, index) => {
-//             let value = item[key];
-//             if (value) {
-//               switch (format) {
-//                 case 'number':
-//                   break;
-//                 case 'date':
-//                   value = getDate(value);
-//                   break;
-//                 case 'jsx':
-//                   value = value();
-//                   break;
-//                 case 'price':
-//                   value = `$${value}`;
-//                   break;
-//                 case 'percentage':
-//                   value = `${value}%`;
-//                   break;
-//                 default:
-//                   break;
-//               }
-//             }
-//             return (
-//               <td key={`${index}-${key}`}>
-//                 <div>{value ?? '-'}</div>
-//               </td>
-//             );
-//           })}
-//         </tr>
-//       );
-//     }),
-
-//   [column, tableRows]
-// );
