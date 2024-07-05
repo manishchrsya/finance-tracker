@@ -1,18 +1,5 @@
 {
-  "transactions": [
-    {
-      "id": "1",
-      "desciption": "Salary credeted",
-      "category": "Income",
-      "amount": "200"
-    },
-    {
-      "id": "3",
-      "desciption": "Salary credeted",
-      "category": "Income",
-      "amount": "200"
-    }
-  ],
+  "transactions": [],
   "user": {
     "id": "1",
     "name": "John Doe",
