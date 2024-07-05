@@ -3,7 +3,7 @@ export interface IFooter {
   handleSecondaryCallback: () => void;
 }
 
-export type formFieldKey = "title" | "transactionType" | "amount";
+export type formFieldKey = "title" | "category" | "amount";
 
 export type IComponentType = "input" | "select";
 

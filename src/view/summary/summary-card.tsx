@@ -10,7 +10,7 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
   padding-right: 36px;
 `;
 
@@ -18,7 +18,7 @@ const CardDetails = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 20px;
 `;
 const GraphDetails = styled.div``;
 const MoneyWrapper = styled.div`

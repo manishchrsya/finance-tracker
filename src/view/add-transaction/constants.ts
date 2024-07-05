@@ -10,8 +10,8 @@ export const formFields: IFormField[] = [
     required: true,
   },
   {
-    label: "Transaction type",
-    name: "transactionType",
+    label: "Category",
+    name: "category",
     placeholder: "enter the title",
     icon: "",
     component: "select",

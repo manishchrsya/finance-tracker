@@ -5,24 +5,25 @@ export const TransactionsHeader: ITableHeaderCell[] = [
     label: "Transaction Title",
     key: "title",
     format: "string",
-    width: "10%",
+  },
+  {
+    label: "Transaction Id",
+    key: "transactionId",
+    format: "string",
   },
   {
     label: "Date",
     key: "date",
     format: "date",
-    width: "10%",
   },
   {
     label: "Category",
-    key: "transactionType",
+    key: "category",
     format: "jsx",
-    width: "10%",
   },
   {
     label: "Amount",
     key: "amount",
-    format: "jsx",
-    width: "10%",
+    format: "price",
   },
 ];

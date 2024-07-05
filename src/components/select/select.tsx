@@ -9,33 +9,31 @@ export const Dropdown: FC<IDropdown> = ({
   value,
 }) => {
   const customStyle: StylesConfig = {
-    control: (styles) => ({
+    control: (styles: any, state: any) => ({
       ...styles,
       backgroundColor: "rgba(255, 255, 255, 0.03)",
       height: 46,
-      width: "100%",
-      border: "2px solid #2F303D",
-      borderRadius: 8,
+      width: 300,
+      border: `2px solid ${state.isFocused ? "#6359e9" : "#2F303D"}`,
+      borderRadius: 4,
+      outline: "none",
+      boxShadow: "none",
       color: "#fff",
       "&:hover": {
         cursor: "pointer",
-        borderColor: "hsla(232, 14%, 20%, 0.6)",
       },
     }),
-    menu: (styles) => ({
+    menu: (styles: any) => ({
       ...styles,
       background: "#171B2C",
       borderRadius: 8,
       border: "2px solid #2F303D",
-      width: 800,
     }),
-    input: (styles) => ({
+    placeholder: (styles: any) => ({
       ...styles,
-      "&:active": {
-        borderColor: "hsla(232, 14%, 20%, 0.6)",
-      },
+      width: "100%",
     }),
-    option: (styles) => {
+    option: (styles: any) => {
       return {
         ...styles,
         backgroundColor: "#171B2C",
@@ -61,6 +59,7 @@ export const Dropdown: FC<IDropdown> = ({
       value={value[0]}
       className="dropdown"
       styles={customStyle}
+      isSearchable={false}
       options={options}
       onChange={handleChangeCountry}
       components={{

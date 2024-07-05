@@ -13,7 +13,7 @@ const Container = styled.div`
   max-width: 1440px;
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
   margin: auto;
 `;
 
@@ -33,7 +33,7 @@ const BodyWrapper = styled.div`
   background-color: #141332;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
 `;
 
 const BodyContainer = styled.div`
@@ -52,7 +52,7 @@ const BodyContainer = styled.div`
 const BodyGrid = styled.div`
   width: 100%;
   display: flex;
-  gap: 24px;
+  gap: 20px;
 
   @media (max-width: 780px) {
     flex-direction: column;

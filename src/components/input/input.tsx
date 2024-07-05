@@ -5,11 +5,11 @@ import styled from "styled-components";
 const TextField = styled.div``;
 
 const Input = styled.input`
-  width: 100%;
+  width: 300px;
   height: 46px;
-  border: 2px solid gray;
+  border: 2px solid #2f303d;
   outline: none;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.03);
   color: #ffffff;
   padding: 4px 8px;
   border-radius: 4px;

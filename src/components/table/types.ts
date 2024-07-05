@@ -1,10 +1,9 @@
-export type ITableCellFormat = "string" | "number" | "jsx" | "date";
+export type ITableCellFormat = "string" | "number" | "jsx" | "date" | "price";
 
 export interface ITableHeaderCell {
   label: string;
   key: string;
   format: ITableCellFormat;
-  width: string;
 }
 
 export interface ITableRow {}

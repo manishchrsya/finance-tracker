@@ -7,7 +7,7 @@ const Container = styled.div`
   flex-direction: column;
   height: 460px;
   justify-content: space-between;
-  gap: 24px;
+  gap: 20px;
 `;
 
 export const Summary = () => {

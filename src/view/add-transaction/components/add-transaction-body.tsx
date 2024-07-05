@@ -9,11 +9,17 @@ const BodyContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 60px;
   width: 100%;
   height: 100%;
   padding: 12px 32px;
-  /* padding-top: 72px; */
+  padding-top: 20px;
+`;
+
+const TransactionForm = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 `;
 
 const FormFieldWrapper = styled.div`
@@ -21,6 +27,7 @@ const FormFieldWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  gap: 16px;
 `;
 
 const FieldLabel = styled.label`
@@ -75,14 +82,14 @@ export const AddTransactionBody = () => {
         </FormFieldWrapper>
       );
     });
-  }, []);
+  }, [getFormFields, handleChange]);
 
   return (
     <BodyContainer>
       <TransactionIllustration>
         <ImageComponent src={addTransactionIllustration} style={{}} />
       </TransactionIllustration>
-      {renderForm}
+      <TransactionForm>{renderForm}</TransactionForm>
     </BodyContainer>
   );
 };

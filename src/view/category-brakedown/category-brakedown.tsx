@@ -17,5 +17,5 @@ const Container = styled.div`
 `;
 
 export const CategoryBreakdown = () => {
-  return <Container>categroy</Container>;
+  return <Container></Container>;
 };
