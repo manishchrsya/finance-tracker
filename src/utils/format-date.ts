@@ -19,5 +19,5 @@
 // console.log(formatDate("2024-07-02T14:35:48", "yyyy/MM/dd HH:mm:ss")); // 2024/07/02 14:35:48 (example time)
 
 export const formatDate = () => {
-  // this will format the date using luxon
+  // this will format the date using luxon library
 };
