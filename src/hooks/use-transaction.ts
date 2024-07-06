@@ -41,7 +41,7 @@ export const useTransaction = () => {
     };
     const resp = await post(API_URL.TRANSACTIONS, payload);
     const { status, message } = resp;
-    if (status === 200) {
+    if (status === 200 || status === 201) {
       successNotification("Transaction Added");
       setTransaction((prev) => {
         return [payload, ...prev];

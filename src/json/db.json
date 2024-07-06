@@ -20,6 +20,41 @@
       "category": "expense",
       "description": "a,dhsbjka sdkahbsdjkas dkajsdbkja sdbajksdgba sdkahsdkjansd aksd",
       "date": "2024-07-06T13:19:20.317Z"
+    },
+    {
+      "id": "0afe5059-3cb7-49e2-a16f-0835256ed705",
+      "amount": "2000",
+      "category": "expense",
+      "description": "tracker",
+      "date": "2024-07-06T18:36:12.683Z"
+    },
+    {
+      "id": "8f6f95d2-6ea6-4167-ae02-f98af60cf282",
+      "amount": "12312",
+      "category": "expense",
+      "description": "jahgdhjasd",
+      "date": "2024-07-06T18:59:16.731Z"
+    },
+    {
+      "id": "a57717a7-de09-4101-a87a-2a992dee6b41",
+      "amount": "12",
+      "category": "expense",
+      "description": "kjgsaS",
+      "date": "2024-07-06T18:59:41.533Z"
+    },
+    {
+      "id": "436e8d59-17d9-47ce-8ac6-4b3c670653ab",
+      "amount": "12",
+      "category": "expense",
+      "description": "asdasd",
+      "date": "2024-07-06T19:01:04.480Z"
+    },
+    {
+      "id": "3300f69d-7e69-4331-96fb-c6fb524d4a35",
+      "amount": "21",
+      "category": "expense",
+      "description": "DSAsdasd",
+      "date": "2024-07-06T19:01:45.264Z"
     }
   ],
   "user": {

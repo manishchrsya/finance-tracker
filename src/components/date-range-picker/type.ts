@@ -1,4 +1,3 @@
-// import type { IDateRange } from "states";
 import type { Preview, Range, RangeKeyDict } from "react-date-range";
 
 import { Dispatch, SetStateAction } from "react";

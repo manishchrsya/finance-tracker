@@ -90,7 +90,6 @@ export const SummaryCard: FC<ISummary> = ({ amount, label, illustration }) => {
       </CardDetails>
       <GraphDetails>
         <ImageComponent src={illustration} width={80} height={80} />
-        {/* this is blank space need to figure out something for this place */}
       </GraphDetails>
     </Container>
   );

@@ -28,8 +28,7 @@ const Header = styled.div`
 `;
 
 const HeaderAction = styled.div`
-  width: 200px;
-  height: 40px;
+  position: relative;
 `;
 const Span = styled.div`
   font-size: 24px;
@@ -79,19 +78,6 @@ export const Transactions = () => {
         <Span>Transactions</Span>
         <HeaderAction>
           <DatePicker />
-          {/* <DateRangePicker
-            handleChangeRange={() => {}}
-            handleSubmit={() => {}}
-            range={}
-            rangeColor={[""]}
-          /> */}
-          {/* <DateRange
-            endDate={new Date()}
-            focusedInput={null}
-            onDateChange={() => {}}
-            onFocusChange={() => {}}
-            startDate={new Date()}
-          /> */}
         </HeaderAction>
       </Header>
       <Table header={TransactionsHeader} rows={renderRows} />

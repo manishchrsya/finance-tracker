@@ -23,7 +23,7 @@ const TableBody = styled.tbody`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  height: 100%;
+  height: calc(100vh - 730px);
   overflow: auto;
 `;
 
