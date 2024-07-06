@@ -50,7 +50,6 @@ export const Navbar = () => {
   const [isOpen, setIsOpen] = useRecoilState(AddTransactionModalStatus);
   const user = useRecoilValue(userState);
 
-  // console.log("isOpen", isOpen);
   const handleOpen = useCallback(() => {
     setIsOpen((prev) => !prev);
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -57,7 +57,7 @@ export const Dropdown: FC<IDropdown> = ({ handleChange, options, value }) => {
   return (
     <ReactSelect
       defaultValue={options[0]}
-      value={value[0]}
+      value={(value as any)[0]}
       className="dropdown"
       styles={customStyle}
       isSearchable={false}

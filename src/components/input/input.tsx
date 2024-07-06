@@ -34,7 +34,6 @@ export const InputField: FC<IInput> = ({
   id,
   name,
   placeholder,
-  inputRef,
   type,
   value,
   isError,
@@ -48,7 +47,6 @@ export const InputField: FC<IInput> = ({
       <Input
         type={type}
         value={value}
-        ref={inputRef}
         placeholder={placeholder}
         name={name}
         id={id}

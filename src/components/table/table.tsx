@@ -91,10 +91,10 @@ export const Table: FC<ITable> = ({ header, rows = [] }) => {
         </IllustrationWrapper>
       );
     }
-    return rows.map((row: any, index: number) => (
+    return rows.map((row: any) => (
       <TableRow key={row.id}>
-        {header.map(({ key, format }: any, idx: number) => {
-          let value = row[key as keyof any];
+        {header.map(({ key, format }) => {
+          let value = row[key];
           if (value) {
             switch (format as ITableCellFormat) {
               case "number":
@@ -105,7 +105,7 @@ export const Table: FC<ITable> = ({ header, rows = [] }) => {
                 value = value();
                 break;
               case "date":
-                value = formatDate(value);
+                value = formatDate(value, "MMM-dd-yyyy");
                 break;
               case "price":
                 value = formatPrice(Number(value));

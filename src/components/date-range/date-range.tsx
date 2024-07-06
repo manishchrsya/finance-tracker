@@ -88,8 +88,8 @@ export const DatePicker = () => {
   const renderedDate = useMemo(() => {
     const { endDate, startDate } = range[0];
     const isSame = isSameDay(startDate, endDate);
-    const fromDate = formatDate(startDate);
-    const toDate = formatDate(endDate);
+    const fromDate = formatDate(startDate, "dd-MMM-yyyy");
+    const toDate = formatDate(endDate, "dd-MMM-yyyy");
     if (isSame) {
       return fromDate;
     }

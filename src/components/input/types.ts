@@ -8,7 +8,6 @@ export interface IInput extends ComponentProps<"input"> {
   type: HTMLInputTypeAttribute;
   id: string;
   name: string;
-  inputRef?: any;
   isError?: boolean;
   errorMessage?: string;
   autoFocus?: boolean;

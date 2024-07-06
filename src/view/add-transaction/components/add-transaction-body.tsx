@@ -79,17 +79,6 @@ export const AddTransactionBody = () => {
     [setError, transactionForm]
   );
 
-  // const renderForm = useMemo(() => {
-  //   return formFields.map((field) => {
-  //     return (
-  //       <FormFieldWrapper key={field.name}>
-  //         <FieldLabel>{field.label}</FieldLabel>
-  //         <Fragment>{getFormFields(field, ref, handleChange)}</Fragment>
-  //       </FormFieldWrapper>
-  //     );
-  //   });
-  // }, [getFormFields, handleChange]);
-
   return (
     <BodyContainer>
       <TransactionIllustration>

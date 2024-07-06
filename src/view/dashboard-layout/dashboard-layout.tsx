@@ -1,3 +1,4 @@
+import { Loader } from "components";
 import { LOADING_STATUS } from "constant";
 import { useTransaction } from "hooks";
 import { Fragment, useEffect, useMemo } from "react";
@@ -80,7 +81,11 @@ export const Dashboard = () => {
 
   const renderLayout = useMemo(() => {
     if (loadingStatus === LOADING_STATUS.LOADING) {
-      return <LoaderWrapper>Loading...</LoaderWrapper>;
+      return (
+        <LoaderWrapper>
+          <Loader />
+        </LoaderWrapper>
+      );
     }
     return (
       <BodyContainer>

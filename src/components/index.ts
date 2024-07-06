@@ -7,3 +7,4 @@ export * from "./select";
 export * from "./table";
 export * from "./donut-chart";
 export * from "./date-range-picker/date-range-picker";
+export * from "./loader/loader";

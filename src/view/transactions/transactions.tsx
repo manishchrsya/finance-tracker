@@ -5,8 +5,9 @@ import styled from "styled-components";
 
 import { Table } from "components";
 import { TransactionsHeader } from "./constant";
-import { ITransaction, TransactionsState } from "store/transactions/state";
+import { ITransaction } from "store";
 import { DatePicker } from "components/date-range/date-range";
+import { TransactionsSelector } from "store";
 
 const Container = styled.div`
   width: 100%;
@@ -48,7 +49,8 @@ const PillWrapper = styled.div`
 `;
 
 export const Transactions = () => {
-  const transactions = useRecoilValue(TransactionsState);
+  const { filteredTransactions: transactions } =
+    useRecoilValue(TransactionsSelector);
 
   const renderRows = useMemo(() => {
     const rows: ITransactionsRowData[] = [];

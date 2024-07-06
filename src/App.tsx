@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo } from "react";
 import { Dashboard } from "./view";
 import styled from "styled-components";
 import { useUser } from "hooks/use-user";
-import { Button, ImageComponent } from "components";
+import { Button, ImageComponent, Loader } from "components";
 import errorIllustration from "assets/illustrations/500.svg";
 import { LOADING_STATUS } from "constant";
 
@@ -56,7 +56,11 @@ function App() {
       );
     }
     if (loadingStatus === LOADING_STATUS.LOADING) {
-      return <LoaderWrapper>Loading</LoaderWrapper>;
+      return (
+        <LoaderWrapper>
+          <Loader />
+        </LoaderWrapper>
+      );
     }
     return <Dashboard />;
   }, [handleClick, loadingStatus]);
