@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 import useNetwork from "./use-network";
-import { API_URL, ILoadingStatus, LOADING_STATUS } from "constant";
+import { API_URL, COMMON, ILoadingStatus, LOADING_STATUS } from "constant";
 import { useSetRecoilState } from "recoil";
 import { userState } from "store";
 import { Notification } from "utils";
@@ -24,7 +24,7 @@ export const useUser = () => {
         setLoadingStatus(LOADING_STATUS.SUCCESS);
       }, 1000);
     } else {
-      errorNotification(message ?? "Failed to load user, try again");
+      errorNotification(message ?? COMMON.USER_LOAD_FAILED);
       setTimeout(() => {
         setLoadingStatus(LOADING_STATUS.REJECTED);
       }, 1000);

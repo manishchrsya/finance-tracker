@@ -5,7 +5,7 @@ import ReactSelect, { StylesConfig } from "react-select";
 
 export const Dropdown: FC<IDropdown> = ({ handleChange, options, value }) => {
   const customStyle: StylesConfig = {
-    control: (styles: any, state: any) => ({
+    control: (styles, state) => ({
       ...styles,
       backgroundColor: "rgba(255, 255, 255, 0.03)",
       height: 46,
@@ -23,18 +23,18 @@ export const Dropdown: FC<IDropdown> = ({ handleChange, options, value }) => {
       ...provided,
       color: "#ffffff",
     }),
-    menu: (styles: any) => ({
+    menu: (styles) => ({
       ...styles,
       background: "#171B2C",
       borderRadius: 8,
       border: "2px solid #2F303D",
     }),
-    placeholder: (styles: any) => ({
+    placeholder: (styles) => ({
       ...styles,
       width: "100%",
       color: "#ffffff",
     }),
-    option: (styles: any) => {
+    option: (styles) => {
       return {
         ...styles,
         backgroundColor: "#171B2C",

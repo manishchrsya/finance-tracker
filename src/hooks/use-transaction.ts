@@ -1,10 +1,11 @@
 import { useCallback, useState } from "react";
-import { Notification } from "utils";
-import useNetwork from "./use-network";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { AddTransactionFormState, TransactionsState } from "store";
 import { v4 } from "uuid";
-import { API_URL, ILoadingStatus, LOADING_STATUS } from "constant";
+
+import { Notification } from "utils";
+import { AddTransactionFormState, TransactionsState } from "store";
+import { API_URL, COMMON, ILoadingStatus, LOADING_STATUS } from "constant";
+import useNetwork from "./use-network";
 
 export const useTransaction = () => {
   const setTransaction = useSetRecoilState(TransactionsState);
@@ -42,12 +43,12 @@ export const useTransaction = () => {
     const resp = await post(API_URL.TRANSACTIONS, payload);
     const { status, message } = resp;
     if (status === 200 || status === 201) {
-      successNotification("Transaction Added");
+      successNotification(COMMON.TRANSACTION_CREATED);
       setTransaction((prev) => {
         return [payload, ...prev];
       });
     } else {
-      errorNotification(message ?? "Transaction Failed, Try again later");
+      errorNotification(message ?? COMMON.TRANSACTION_LOAD_FAILED);
     }
     setTimeout(() => {
       setLoadingStatus(LOADING_STATUS.SUCCESS);

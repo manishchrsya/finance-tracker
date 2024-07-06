@@ -1,8 +1,12 @@
 import { Button, Modal } from "components";
 import { useCallback } from "react";
 import { Styles } from "react-modal";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { AddTransactionModalStatus, userState } from "store";
+import { useRecoilState, useRecoilValue, useResetRecoilState } from "recoil";
+import {
+  AddTransactionFormErrorState,
+  AddTransactionModalStatus,
+  userState,
+} from "store";
 import styled from "styled-components";
 import { getFirstName } from "utils";
 import { AddTransaction } from "view/add-transaction";
@@ -48,6 +52,7 @@ const ModalStyles: Styles = {
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useRecoilState(AddTransactionModalStatus);
+  const resetFormErrorState = useResetRecoilState(AddTransactionFormErrorState);
   const user = useRecoilValue(userState);
 
   const handleOpen = useCallback(() => {
@@ -57,6 +62,7 @@ export const Navbar = () => {
 
   const handleCloseModal = useCallback(() => {
     setIsOpen(false);
+    resetFormErrorState();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { Table } from "components";
 import { TransactionsHeader } from "./constant";
 import { ITransaction } from "store";
-import { DatePicker } from "components/date-range/date-range";
+import { DatePicker } from "components";
 import { TransactionsSelector } from "store";
 
 const Container = styled.div`

@@ -1,3 +1,4 @@
+import { IOption } from "components";
 import type { IFormField } from "./types";
 
 export const formFields: IFormField[] = [
@@ -27,7 +28,7 @@ export const formFields: IFormField[] = [
   },
 ];
 
-export const categoryOption = [
+export const categoryOption: IOption[] = [
   {
     label: "Expense",
     value: "expense",

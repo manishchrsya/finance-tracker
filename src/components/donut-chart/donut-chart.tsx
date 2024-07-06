@@ -1,15 +1,37 @@
-import { FC } from "react";
-import { ChartProps } from "react-chartjs-2";
 import { Doughnut } from "react-chartjs-2";
-import { ChartData } from "chart.js";
+import {
+  Chart,
+  ArcElement,
+  DoughnutController,
+  Legend,
+  Tooltip,
+  Title,
+  ChartData,
+} from "chart.js";
+import { FC } from "react";
 
-// Define the props type for the DonutChart component
-interface IDonutChart extends Omit<ChartProps<"doughnut">, "type"> {
-  data: ChartData<"doughnut">;
+Chart.register(ArcElement, DoughnutController, Legend, Tooltip, Title);
+
+interface IDonutChart {
+  title: string;
+  data: ChartData<"doughnut", number[], string>;
 }
 
-const DonutChart: FC<IDonutChart> = ({ data, ...props }) => {
-  return <Doughnut data={data} {...props} />;
-};
+export const DonutChart: FC<IDonutChart> = ({ title, data }) => {
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+        text: title,
+      },
+    },
+    // rotation: -90,
+    // circumference: 180,
+  };
 
-export default DonutChart;
+  return <Doughnut data={data} options={options as any} />;
+};
