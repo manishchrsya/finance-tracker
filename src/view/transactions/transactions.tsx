@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { Table } from "components";
 import { TransactionsHeader } from "./constant";
 import { ITransaction, TransactionsState } from "store/transactions/state";
+import { DatePicker } from "components/date-range/date-range";
 
 const Container = styled.div`
   width: 100%;
@@ -77,6 +78,13 @@ export const Transactions = () => {
       <Header>
         <Span>Transactions</Span>
         <HeaderAction>
+          <DatePicker />
+          {/* <DateRangePicker
+            handleChangeRange={() => {}}
+            handleSubmit={() => {}}
+            range={}
+            rangeColor={[""]}
+          /> */}
           {/* <DateRange
             endDate={new Date()}
             focusedInput={null}

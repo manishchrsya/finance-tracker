@@ -5,7 +5,8 @@ import reportWebVitals from "./reportWebVitals";
 import { RecoilRoot } from "recoil";
 import "react-toastify/dist/ReactToastify.css";
 import "remixicon/fonts/remixicon.css";
-import "react-dates/lib/css/_datepicker.css";
+import "react-date-range/dist/styles.css"; // main style file
+import "react-date-range/dist/theme/default.css"; // theme css file
 import { ToastContainer, Slide } from "react-toastify";
 import "./index.css";
 
