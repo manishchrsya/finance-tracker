@@ -1,3 +1,4 @@
+import { ImageComponent } from "components";
 import { FC } from "react";
 import styled from "styled-components";
 import { formatPrice } from "utils";
@@ -72,9 +73,10 @@ const Span = styled.div`
 interface ISummary {
   label: string;
   amount: number;
+  illustration: string;
 }
 
-export const SummaryCard: FC<ISummary> = ({ amount, label }) => {
+export const SummaryCard: FC<ISummary> = ({ amount, label, illustration }) => {
   return (
     <Container>
       <CardDetails>
@@ -87,6 +89,7 @@ export const SummaryCard: FC<ISummary> = ({ amount, label }) => {
         </MoneyWrapper>
       </CardDetails>
       <GraphDetails>
+        <ImageComponent src={illustration} width={80} height={80} />
         {/* this is blank space need to figure out something for this place */}
       </GraphDetails>
     </Container>

@@ -1,10 +1,11 @@
-import { Table } from "components";
-import styled from "styled-components";
-import { TransactionsHeader } from "./constant";
-import { useRecoilValue } from "recoil";
-import { ITransaction, TransactionsState } from "store/transactions/state";
+import type { ITransactionsRowData } from "./types";
 import { useMemo } from "react";
-import { ITransactionsRowData } from "./types";
+import { useRecoilValue } from "recoil";
+import styled from "styled-components";
+
+import { Table } from "components";
+import { TransactionsHeader } from "./constant";
+import { ITransaction, TransactionsState } from "store/transactions/state";
 
 const Container = styled.div`
   width: 100%;
@@ -26,7 +27,6 @@ const Header = styled.div`
 `;
 
 const HeaderAction = styled.div`
-  background-color: gray;
   width: 200px;
   height: 40px;
 `;
@@ -76,7 +76,15 @@ export const Transactions = () => {
     <Container>
       <Header>
         <Span>Transactions</Span>
-        <HeaderAction />
+        <HeaderAction>
+          {/* <DateRange
+            endDate={new Date()}
+            focusedInput={null}
+            onDateChange={() => {}}
+            onFocusChange={() => {}}
+            startDate={new Date()}
+          /> */}
+        </HeaderAction>
       </Header>
       <Table header={TransactionsHeader} rows={renderRows} />
     </Container>

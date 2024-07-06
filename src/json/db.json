@@ -1,0 +1,35 @@
+{
+  "transactions": [
+    {
+      "id": "de2e410f-418f-452e-936f-249555ec247c",
+      "amount": "200000",
+      "category": "income",
+      "description": "Salary Credited",
+      "date": "2024-07-06T07:36:52.137Z"
+    },
+    {
+      "id": "65814bbe-2451-4b8e-81c5-e1fba75e8364",
+      "amount": "98263487263487623487623874627834",
+      "category": "expense",
+      "description": "iquwyehuiqew",
+      "date": "2024-07-06T13:18:47.214Z"
+    },
+    {
+      "id": "228a27f7-ea76-4f7a-b7c2-d8481d36d6e9",
+      "amount": "87152673815237615273512673123871236",
+      "category": "expense",
+      "description": "a,dhsbjka sdkahbsdjkas dkajsdbkja sdbajksdgba sdkahsdkjansd aksd",
+      "date": "2024-07-06T13:19:20.317Z"
+    }
+  ],
+  "user": {
+    "id": "1",
+    "name": "John Doe",
+    "email": "johndoe@example.com",
+    "role": "Software Engineer",
+    "profile": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "phone": "555-555-5555",
+    "dob": "1990-01-01",
+    "gender": "Male"
+  }
+}

@@ -1,8 +1,11 @@
+import { useMemo } from "react";
+import { useRecoilValue } from "recoil";
+import { userState } from "store";
+
 import { ImageComponent } from "components";
 import styled from "styled-components";
 import brand from "assets/brand.png";
-import { useMemo } from "react";
-import { navItems, userProfile } from "./constant";
+import { navItems } from "./constant";
 
 const SidebarContainer = styled.div`
   width: 100%;
@@ -78,6 +81,8 @@ const NavItemlabel = styled.span`
 `;
 
 export const Sidebar = () => {
+  const user = useRecoilValue(userState);
+
   const renderNavItems = useMemo(() => {
     return navItems.map((item) => {
       return (
@@ -92,14 +97,14 @@ export const Sidebar = () => {
   const renderUserCard = useMemo(() => {
     return (
       <UserCard>
-        <Avatar src={userProfile.avatar} />
+        <Avatar src={user.profile} />
         <UserDetails>
-          <UserName>{userProfile.name}</UserName>
-          <UserRole>{userProfile.role}</UserRole>
+          <UserName>{user.name}</UserName>
+          <UserRole>{user.role}</UserRole>
         </UserDetails>
       </UserCard>
     );
-  }, []);
+  }, [user]);
 
   return (
     <SidebarContainer>

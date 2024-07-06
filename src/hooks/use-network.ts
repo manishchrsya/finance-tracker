@@ -1,19 +1,26 @@
 import { useCallback } from "react";
-import { API_HOST } from "../constant/api";
+import { API_HOST } from "constant";
+
+interface FetchResponse<T = any> {
+  data?: T;
+  status: number;
+  message?: string;
+}
 
 const useNetwork = () => {
-  const handleFetch = useCallback(async (url: string, options = {}) => {
-    try {
-      const response = await fetch(`${API_HOST}/${url}`, options);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+  const handleFetch = useCallback(
+    async (url: string, options = {}): Promise<FetchResponse> => {
+      try {
+        const response = await fetch(`${API_HOST}/${url}`, options);
+        const data = await response.json();
+        return { data, status: response.status, message: "ok" };
+      } catch (error) {
+        const typedError = error as Error;
+        return { status: 500, data: typedError.message };
       }
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      return error;
-    }
-  }, []);
+    },
+    []
+  );
 
   const get = useCallback(
     async (endpoint: string) => {

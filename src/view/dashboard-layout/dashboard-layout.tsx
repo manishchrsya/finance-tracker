@@ -1,3 +1,6 @@
+import { LOADING_STATUS } from "constant";
+import { useTransaction } from "hooks";
+import { Fragment, useEffect, useMemo } from "react";
 import styled from "styled-components";
 import {
   CategoryBreakdown,
@@ -59,7 +62,39 @@ const BodyGrid = styled.div`
   }
 `;
 
+const LoaderWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const Dashboard = () => {
+  const { getTransactions, loadingStatus } = useTransaction();
+
+  useEffect(() => {
+    getTransactions();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const renderLayout = useMemo(() => {
+    if (loadingStatus === LOADING_STATUS.LOADING) {
+      return <LoaderWrapper>Loading...</LoaderWrapper>;
+    }
+    return (
+      <BodyContainer>
+        <BodyGrid>
+          <Summary />
+          <CategoryBreakdown />
+        </BodyGrid>
+        <BodyGrid>
+          <Transactions />
+        </BodyGrid>
+      </BodyContainer>
+    );
+  }, [loadingStatus]);
+
   return (
     <Container>
       <SideBarWrapper>
@@ -67,15 +102,7 @@ export const Dashboard = () => {
       </SideBarWrapper>
       <BodyWrapper>
         <Navbar />
-        <BodyContainer>
-          <BodyGrid>
-            <Summary />
-            <CategoryBreakdown />
-          </BodyGrid>
-          <BodyGrid>
-            <Transactions />
-          </BodyGrid>
-        </BodyContainer>
+        <Fragment>{renderLayout}</Fragment>
       </BodyWrapper>
     </Container>
   );

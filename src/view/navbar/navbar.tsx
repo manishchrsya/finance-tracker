@@ -1,9 +1,10 @@
 import { Button, Modal } from "components";
 import { useCallback } from "react";
 import { Styles } from "react-modal";
-import { useRecoilState } from "recoil";
-import { AddTransactionModalStatus } from "store/add-transaction";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { AddTransactionModalStatus, userState } from "store";
 import styled from "styled-components";
+import { getFirstName } from "utils";
 import { AddTransaction } from "view/add-transaction";
 
 const NavContainer = styled.div`
@@ -47,6 +48,7 @@ const ModalStyles: Styles = {
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useRecoilState(AddTransactionModalStatus);
+  const user = useRecoilValue(userState);
 
   // console.log("isOpen", isOpen);
   const handleOpen = useCallback(() => {
@@ -62,7 +64,7 @@ export const Navbar = () => {
   return (
     <NavContainer>
       <Greeting>
-        <Heading>Welcome back, John 👋🏻</Heading>
+        <Heading>{`Welcome back, ${getFirstName(user.name)} 👋🏻`}</Heading>
         <Message>Here’s what’s happening with your store today.</Message>
       </Greeting>
       <ActionWrapper>

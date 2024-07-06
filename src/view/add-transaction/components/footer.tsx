@@ -8,7 +8,8 @@ import {
   AddTransactionFormState,
   AddTransactionModalStatus,
 } from "store";
-import { useTransaction } from "../hooks/use-transaction";
+import { useTransaction } from "hooks";
+import { LOADING_STATUS } from "constant";
 
 const Footer = styled.div`
   width: 100%;
@@ -29,7 +30,7 @@ export const AddTransactionFooter = () => {
   const error = useRecoilValue(AddTransactionFormErrorState);
   const transactionForm = useRecoilValue(AddTransactionFormState);
 
-  const { addnewTransaction, loadingStatus } = useTransaction();
+  const { createTransaction, loadingStatus } = useTransaction();
 
   const handleClose = useCallback(() => {
     resetIsModalOpen();
@@ -39,13 +40,13 @@ export const AddTransactionFooter = () => {
   }, []);
 
   const handleAddTransaction = useCallback(async () => {
-    const status = await addnewTransaction();
+    const status = await createTransaction();
     if (status) {
       setTimeout(() => {
         handleClose();
       }, 1000);
     }
-  }, [addnewTransaction, handleClose]);
+  }, [createTransaction, handleClose]);
 
   const isDisabled = useMemo(() => {
     const { amount, description } = error;
@@ -61,7 +62,7 @@ export const AddTransactionFooter = () => {
   }, [error, transactionForm.amount, transactionForm.description]);
 
   const PrimaryButtonLabel = useMemo(() => {
-    if (loadingStatus === "loading") {
+    if (loadingStatus === LOADING_STATUS.LOADING) {
       return "Loading...";
     } else {
       return "Add";

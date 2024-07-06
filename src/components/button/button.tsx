@@ -3,10 +3,8 @@ import type { IButton } from "./types";
 import { FC } from "react";
 import styled from "styled-components";
 
-import { fontSize } from "variables";
-
 const ButtonDiv = styled.button`
-  font-size: ${fontSize};
+  font-size: 16px;
   background-color: #6359e9;
   border-radius: 8px;
   color: #ffffff;
