@@ -1,5 +1,3 @@
-export interface IButton {
-  // label: string;
-  // variant: "primary" | "secondary";
-  handleClick: () => void;
-}
+import { ComponentProps } from "react";
+
+export type IButton = ComponentProps<"button">;

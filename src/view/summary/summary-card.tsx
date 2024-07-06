@@ -1,4 +1,6 @@
+import { FC } from "react";
 import styled from "styled-components";
+import { formatPrice } from "utils";
 
 const Container = styled.div`
   display: flex;
@@ -67,7 +69,12 @@ const Span = styled.div`
   }
 `;
 
-export const SummaryCard = () => {
+interface ISummary {
+  label: string;
+  amount: number;
+}
+
+export const SummaryCard: FC<ISummary> = ({ amount, label }) => {
   return (
     <Container>
       <CardDetails>
@@ -75,8 +82,8 @@ export const SummaryCard = () => {
           <ProgressIcon className="ri-arrow-right-up-line" />
         </ResultIcon>
         <MoneyWrapper>
-          <Span>Total Income</Span>
-          <ResultAmount>$ 2100.00</ResultAmount>
+          <Span>{label}</Span>
+          <ResultAmount>{formatPrice(amount)}</ResultAmount>
         </MoneyWrapper>
       </CardDetails>
       <GraphDetails>

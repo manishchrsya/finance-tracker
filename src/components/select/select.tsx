@@ -3,11 +3,7 @@ import type { IDropdown } from "./types";
 import { FC } from "react";
 import ReactSelect, { StylesConfig } from "react-select";
 
-export const Dropdown: FC<IDropdown> = ({
-  handleChangeCountry,
-  options,
-  value,
-}) => {
+export const Dropdown: FC<IDropdown> = ({ handleChange, options, value }) => {
   const customStyle: StylesConfig = {
     control: (styles: any, state: any) => ({
       ...styles,
@@ -18,10 +14,14 @@ export const Dropdown: FC<IDropdown> = ({
       borderRadius: 4,
       outline: "none",
       boxShadow: "none",
-      color: "#fff",
+      color: "#ffffff",
       "&:hover": {
         cursor: "pointer",
       },
+    }),
+    singleValue: (provided) => ({
+      ...provided,
+      color: "#ffffff",
     }),
     menu: (styles: any) => ({
       ...styles,
@@ -32,6 +32,7 @@ export const Dropdown: FC<IDropdown> = ({
     placeholder: (styles: any) => ({
       ...styles,
       width: "100%",
+      color: "#ffffff",
     }),
     option: (styles: any) => {
       return {
@@ -61,7 +62,7 @@ export const Dropdown: FC<IDropdown> = ({
       styles={customStyle}
       isSearchable={false}
       options={options}
-      onChange={handleChangeCountry}
+      onChange={handleChange}
       components={{
         IndicatorSeparator: () => null,
       }}

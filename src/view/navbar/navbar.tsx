@@ -66,7 +66,7 @@ export const Navbar = () => {
         <Message>Here’s what’s happening with your store today.</Message>
       </Greeting>
       <ActionWrapper>
-        <Button handleClick={handleOpen}>Add Transaction</Button>
+        <Button onClick={handleOpen}>Add Transaction</Button>
       </ActionWrapper>
       {isOpen && (
         <Modal

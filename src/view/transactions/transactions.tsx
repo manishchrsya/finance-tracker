@@ -1,6 +1,10 @@
 import { Table } from "components";
 import styled from "styled-components";
 import { TransactionsHeader } from "./constant";
+import { useRecoilValue } from "recoil";
+import { ITransaction, TransactionsState } from "store/transactions/state";
+import { useMemo } from "react";
+import { ITransactionsRowData } from "./types";
 
 const Container = styled.div`
   width: 100%;
@@ -43,74 +47,38 @@ const PillWrapper = styled.div`
   font-size: 12px;
 `;
 
-const data: any = [
-  {
-    title: "Momo cabin",
-    date: "12/07/2024",
-    transactionId: "asd287tegdugqhdiuqye872y3",
-    category: () => <PillWrapper>Income</PillWrapper>,
-    amount: 200,
-  },
-  {
-    title: "Momo cabin",
-    date: "12/07/2024",
-    transactionId: "asd287tegdugqhdiuqye872y3",
-    category: () => <PillWrapper>Expense</PillWrapper>,
-    amount: 200,
-  },
-  {
-    title: "Momo cabin",
-    date: "12/07/2024",
-    transactionId: "asd287tegdugqhdiuqye872y3",
-    category: () => <PillWrapper>Income</PillWrapper>,
-    amount: 200,
-  },
-  {
-    title: "Momo cabin",
-    date: "12/07/2024",
-    transactionId: "asd287tegdugqhdiuqye872y3",
-    category: () => <PillWrapper>Income</PillWrapper>,
-    amount: 200,
-  },
-
-  {
-    title: "Momo cabin",
-    date: "12/07/2024",
-    transactionId: "asd287tegdugqhdiuqye872y3",
-    category: () => <PillWrapper>Income</PillWrapper>,
-    amount: 200,
-  },
-  {
-    title: "Momo cabin",
-    date: "12/07/2024",
-    transactionId: "asd287tegdugqhdiuqye872y3",
-    category: () => <PillWrapper>Income</PillWrapper>,
-    amount: 200,
-  },
-  {
-    title: "Momo cabin",
-    date: "12/07/2024",
-    transactionId: "asd287tegdugqhdiuqye872y3",
-    category: () => <PillWrapper>Income</PillWrapper>,
-    amount: 200,
-  },
-  {
-    title: "Momo cabin",
-    date: "12/07/2024",
-    transactionId: "asd287tegdugqhdiuqye872y3",
-    category: () => <PillWrapper>Income</PillWrapper>,
-    amount: 200,
-  },
-];
-
 export const Transactions = () => {
+  const transactions = useRecoilValue(TransactionsState);
+
+  const renderRows = useMemo(() => {
+    const rows: ITransactionsRowData[] = [];
+    transactions.forEach((transaction: ITransaction, index: number) => {
+      if (transaction) {
+        let row = {} as ITransactionsRowData;
+        TransactionsHeader.forEach(({ format, key }) => {
+          if (format === "jsx" && key === "category") {
+            return (row[key] = () => (
+              <PillWrapper>{transaction[key]}</PillWrapper>
+            ));
+          }
+          return (row = {
+            ...row,
+            [key]: (transaction as any)[key],
+          });
+        });
+        rows.push(row);
+      }
+    });
+    return rows;
+  }, [transactions]);
+
   return (
     <Container>
       <Header>
         <Span>Transactions</Span>
         <HeaderAction />
       </Header>
-      <Table header={TransactionsHeader} rows={data} />
+      <Table header={TransactionsHeader} rows={renderRows} />
     </Container>
   );
 };

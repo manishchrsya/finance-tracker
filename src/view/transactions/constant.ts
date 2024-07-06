@@ -2,13 +2,13 @@ import { ITableHeaderCell } from "components";
 
 export const TransactionsHeader: ITableHeaderCell[] = [
   {
-    label: "Transaction Title",
-    key: "title",
+    label: "Description",
+    key: "description",
     format: "string",
   },
   {
     label: "Transaction Id",
-    key: "transactionId",
+    key: "id",
     format: "string",
   },
   {

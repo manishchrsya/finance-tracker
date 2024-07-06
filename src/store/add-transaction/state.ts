@@ -1,5 +1,5 @@
 import { atom } from "recoil";
-import { ITransactionForm } from "./types";
+import { ITransactionForm, ITransactionFormError } from "./types";
 
 export const AddTransactionModalStatus = atom<boolean>({
   key: "add-transaction-modal-status",
@@ -10,7 +10,12 @@ export const AddTransactionFormState = atom<ITransactionForm>({
   key: "add-transaction-form-state-key",
   default: {
     amount: "",
-    transationType: "expense",
-    title: "",
+    category: { label: "Expense", value: "expense" },
+    description: "",
   },
+});
+
+export const AddTransactionFormErrorState = atom<ITransactionFormError>({
+  key: "add-transaction-form-error-state-key",
+  default: { description: false, amount: false },
 });

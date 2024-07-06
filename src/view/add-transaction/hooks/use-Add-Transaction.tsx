@@ -10,9 +10,7 @@ export const useGetTransactions = () => {
       console.log("formField", formField);
       switch (formField.component) {
         case "select":
-          return (
-            <Dropdown handleChangeCountry={() => {}} options={[]} value={{}} />
-          );
+          return <Dropdown handleChange={() => {}} options={[]} value={{}} />;
         case "input":
           return (
             <InputField

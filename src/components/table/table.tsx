@@ -1,8 +1,10 @@
+import { ImageComponent } from "components/Image";
 import type { ITable, ITableCellFormat } from "./types";
 
 import { FC, useMemo } from "react";
 import styled from "styled-components";
-import { formatPrice } from "utils";
+import { formatDate, formatPrice } from "utils";
+import emptyTable from "assets/illustrations/no-transaction.svg";
 
 const TableWrapper = styled.table`
   width: 100%;
@@ -64,6 +66,14 @@ const TableData = styled.td`
   }
 `;
 
+const IllustrationWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+`;
+
 export const Table: FC<ITable> = ({ header, rows = [] }) => {
   const renderColumn = useMemo(
     () =>
@@ -74,11 +84,17 @@ export const Table: FC<ITable> = ({ header, rows = [] }) => {
   );
 
   const renderRows = useMemo(() => {
-    const renderingRows = rows;
-    return renderingRows.map((rowData: any, index: number) => (
-      <TableRow key={`renderRows__${index}`}>
+    if (!rows.length) {
+      return (
+        <IllustrationWrapper>
+          <ImageComponent src={emptyTable} width={150} height={150} />
+        </IllustrationWrapper>
+      );
+    }
+    return rows.map((row: any, index: number) => (
+      <TableRow key={row.id}>
         {header.map(({ key, format }: any, idx: number) => {
-          let value = rowData[key as keyof any];
+          let value = row[key as keyof any];
           if (value) {
             switch (format as ITableCellFormat) {
               case "number":
@@ -88,16 +104,17 @@ export const Table: FC<ITable> = ({ header, rows = [] }) => {
               case "jsx":
                 value = value();
                 break;
+              case "date":
+                value = formatDate(value);
+                break;
               case "price":
-                value = formatPrice(value);
+                value = formatPrice(Number(value));
                 break;
               default:
                 break;
             }
           }
-          return (
-            <TableData key={`renderRows__${index}_${idx}`}>{value}</TableData>
-          );
+          return <TableData key={`${row.id}-${key}`}>{value}</TableData>;
         })}
       </TableRow>
     ));

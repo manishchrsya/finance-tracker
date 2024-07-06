@@ -1,9 +1,10 @@
-import { Fragment, useCallback, useMemo, useRef } from "react";
+import { useCallback } from "react";
 import styled from "styled-components";
-import { useGetTransactions } from "../hooks";
-import { formFields } from "../constants";
-import { ImageComponent } from "components";
+import { Dropdown, ImageComponent, InputField } from "components";
 import addTransactionIllustration from "assets/illustrations/create-transaction.svg";
+import { useRecoilState } from "recoil";
+import { AddTransactionFormErrorState, AddTransactionFormState } from "store";
+import { categoryOption } from "../constants";
 
 const BodyContainer = styled.div`
   display: flex;
@@ -43,31 +44,96 @@ const TransactionIllustration = styled.div`
 `;
 
 export const AddTransactionBody = () => {
-  const { getFormFields } = useGetTransactions();
+  const [error, setError] = useRecoilState(AddTransactionFormErrorState);
 
-  const ref = useRef();
+  const [transactionForm, setTransactionForm] = useRecoilState(
+    AddTransactionFormState
+  );
 
-  const handleChange = useCallback((e: any, name: any) => {
-    //
-  }, []);
+  const handleChange = useCallback(
+    (
+      e: any,
+      name: keyof typeof transactionForm,
+      component: "input" | "select"
+    ) => {
+      setTransactionForm((prev) => {
+        const value = component === "input" ? e.target.value : e;
+        return { ...prev, [name]: value };
+      });
+      setError((prev) => ({ ...prev, [name]: false }));
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
 
-  const renderForm = useMemo(() => {
-    return formFields.map((field) => {
-      return (
-        <FormFieldWrapper key={field.name}>
-          <FieldLabel>{field.label}</FieldLabel>
-          <Fragment>{getFormFields(field, ref, handleChange)}</Fragment>
-        </FormFieldWrapper>
-      );
-    });
-  }, [getFormFields, handleChange]);
+  const handleBlur = useCallback(
+    (name: keyof typeof transactionForm) => {
+      const value = transactionForm[name] as string;
+      if (!value.trim()) {
+        setError((prev) => ({ ...prev, [name]: true }));
+      }
+      if (name === "description" && value.length < 4) {
+        setError((prev) => ({ ...prev, [name]: true }));
+      }
+    },
+    [setError, transactionForm]
+  );
+
+  // const renderForm = useMemo(() => {
+  //   return formFields.map((field) => {
+  //     return (
+  //       <FormFieldWrapper key={field.name}>
+  //         <FieldLabel>{field.label}</FieldLabel>
+  //         <Fragment>{getFormFields(field, ref, handleChange)}</Fragment>
+  //       </FormFieldWrapper>
+  //     );
+  //   });
+  // }, [getFormFields, handleChange]);
 
   return (
     <BodyContainer>
       <TransactionIllustration>
-        <ImageComponent src={addTransactionIllustration} style={{}} />
+        <ImageComponent src={addTransactionIllustration} />
       </TransactionIllustration>
-      <TransactionForm>{renderForm}</TransactionForm>
+      <TransactionForm>
+        <FormFieldWrapper>
+          <FieldLabel>Description</FieldLabel>
+          <InputField
+            handleChange={(e) => handleChange(e, "description", "input")}
+            handleBlur={() => handleBlur("description")}
+            id="description"
+            name="description"
+            placeholder="Enter Description"
+            type={"text"}
+            value={transactionForm.description}
+            autoFocus
+            errorMessage="Description should be min 4 characters long"
+            isError={error.description}
+          />
+        </FormFieldWrapper>
+        <FormFieldWrapper>
+          <FieldLabel>Category</FieldLabel>
+          <Dropdown
+            handleChange={(e) => handleChange(e, "category", "select")}
+            options={categoryOption}
+            value={transactionForm.category}
+          />
+        </FormFieldWrapper>
+        <FormFieldWrapper>
+          <FieldLabel>Amount</FieldLabel>
+          <InputField
+            handleChange={(e) => handleChange(e, "amount", "input")}
+            id="amount"
+            name="amount"
+            placeholder="Enter Amount"
+            type={"number"}
+            value={transactionForm.amount}
+            handleBlur={() => handleBlur("amount")}
+            errorMessage="Invalid amount"
+            isError={error.amount}
+          />
+        </FormFieldWrapper>
+      </TransactionForm>
     </BodyContainer>
   );
 };

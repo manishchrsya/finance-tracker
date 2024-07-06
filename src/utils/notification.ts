@@ -2,7 +2,7 @@ import { useCallback } from "react";
 
 import { toast } from "react-toastify";
 
-export const useNotification = () => {
+export const Notification = () => {
   const successNotification = useCallback((msg: string) => {
     return toast.success(msg);
   }, []);

@@ -36,7 +36,7 @@ const NavItem = styled.div`
   display: flex;
   align-items: center;
   padding: 12px;
-  border-radius: 12px;
+  border-radius: 8px;
   cursor: pointer;
   gap: 16px;
   background-color: #6359e9;

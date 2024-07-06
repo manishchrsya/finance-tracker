@@ -26,3 +26,14 @@ export const formFields: IFormField[] = [
     required: true,
   },
 ];
+
+export const categoryOption = [
+  {
+    label: "Expense",
+    value: "expense",
+  },
+  {
+    label: "Income",
+    value: "income",
+  },
+];

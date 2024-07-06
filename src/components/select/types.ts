@@ -1,5 +1,5 @@
 export interface IDropdown {
-  handleChangeCountry: (event: any) => void;
+  handleChange: (event: any) => void;
   options: any[];
   value: any;
 }

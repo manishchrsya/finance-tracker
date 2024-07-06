@@ -1,13 +1,15 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, ComponentProps, HTMLInputTypeAttribute } from "react";
 
-export interface IInput {
+export interface IInput extends ComponentProps<"input"> {
   placeholder: string;
   value: string | number;
   handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  type: string | number;
+  handleBlur?: () => void;
+  type: HTMLInputTypeAttribute;
   id: string;
   name: string;
-  inputRef: any;
+  inputRef?: any;
   isError?: boolean;
   errorMessage?: string;
+  autoFocus?: boolean;
 }

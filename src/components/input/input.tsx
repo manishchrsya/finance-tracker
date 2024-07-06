@@ -2,7 +2,9 @@ import { FC } from "react";
 import { IInput } from "./types";
 import styled from "styled-components";
 
-const TextField = styled.div``;
+const TextField = styled.div`
+  position: relative;
+`;
 
 const Input = styled.input`
   width: 300px;
@@ -19,9 +21,12 @@ const Input = styled.input`
   }
 `;
 
-const ErrorMessage = styled.span`
-  font-size: 8px;
+const ErrorMessage = styled.div`
+  font-size: 10px;
   color: red;
+  width: 100%;
+  position: absolute;
+  top: 100%;
 `;
 
 export const InputField: FC<IInput> = ({
@@ -34,19 +39,23 @@ export const InputField: FC<IInput> = ({
   value,
   isError,
   errorMessage,
+  autoFocus,
+  handleBlur = () => {},
+  ...props
 }) => {
-  const handleBlur = () => {};
   return (
     <TextField>
       <Input
-        type="text"
+        type={type}
         value={value}
         ref={inputRef}
         placeholder={placeholder}
         name={name}
         id={id}
+        autoFocus={autoFocus}
         onChange={handleChange}
         onBlur={handleBlur}
+        {...props}
       />
       {isError && <ErrorMessage>{errorMessage}</ErrorMessage>}
     </TextField>

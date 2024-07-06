@@ -1,7 +1,7 @@
 export interface ITransactionsRowData {
-  actions: React.ReactElement;
-  documentName: string;
-  index: number;
-  pagesCount: number;
-  tabsCount: number;
+  title: string;
+  date: Date;
+  id: string;
+  category: () => JSX.Element;
+  amount: number;
 }
