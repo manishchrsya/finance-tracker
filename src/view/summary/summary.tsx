@@ -24,16 +24,19 @@ export const Summary = () => {
         label="Total Income"
         amount={TransactionSummary.income}
         illustration={income}
+        type="income"
       />
       <SummaryCard
         label="Total Expense"
         amount={TransactionSummary.expense}
         illustration={expense}
+        type="expense"
       />
       <SummaryCard
         label="Total Savings"
         amount={TransactionSummary.savings}
         illustration={savings}
+        type="savings"
       />
     </Container>
   );

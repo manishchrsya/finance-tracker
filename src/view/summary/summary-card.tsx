@@ -1,6 +1,7 @@
-import { ImageComponent } from "components";
 import { FC } from "react";
 import styled from "styled-components";
+
+import { ImageComponent } from "components";
 import { formatPrice } from "utils";
 
 const Container = styled.div`
@@ -23,7 +24,6 @@ const CardDetails = styled.div`
   justify-content: space-between;
   gap: 20px;
 `;
-const GraphDetails = styled.div``;
 const MoneyWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -56,7 +56,7 @@ const ResultAmount = styled.div`
   }
 `;
 
-const Span = styled.div`
+const Span = styled.div<{ $type?: ISummaryType }>`
   font-size: 14px;
   font-weight: 500;
   color: #8c89b4;
@@ -68,21 +68,39 @@ const Span = styled.div`
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: green;
+    background-color: #02b15a;
     top: 50%;
     left: 0;
     margin-left: -16px;
     transform: translate(-50%, -50%);
+    ${({ $type }) =>
+      $type === "expense" &&
+      `
+       background-color: #f55d5d;
+    `}
+    ${({ $type }) =>
+      $type === "savings" &&
+      `
+       background-color: #faf38e;
+    `}
   }
 `;
+
+export type ISummaryType = "income" | "expense" | "savings";
 
 interface ISummary {
   label: string;
   amount: number;
   illustration: string;
+  type: ISummaryType;
 }
 
-export const SummaryCard: FC<ISummary> = ({ amount, label, illustration }) => {
+export const SummaryCard: FC<ISummary> = ({
+  amount,
+  label,
+  illustration,
+  type,
+}) => {
   return (
     <Container>
       <CardDetails>
@@ -90,13 +108,11 @@ export const SummaryCard: FC<ISummary> = ({ amount, label, illustration }) => {
           <ProgressIcon className="ri-arrow-right-up-line" />
         </ResultIcon>
         <MoneyWrapper>
-          <Span>{label}</Span>
+          <Span $type={type}>{label}</Span>
           <ResultAmount>{formatPrice(amount)}</ResultAmount>
         </MoneyWrapper>
       </CardDetails>
-      <GraphDetails>
-        <ImageComponent src={illustration} width={80} height={80} />
-      </GraphDetails>
+      <ImageComponent src={illustration} width={80} height={80} />
     </Container>
   );
 };

@@ -8,6 +8,7 @@ import { TransactionsHeader } from "./constant";
 import { ITransaction } from "store";
 import { DatePicker } from "components";
 import { TransactionsSelector } from "store";
+import { ISummaryType } from "view/summary/summary-card";
 
 const Container = styled.div`
   width: 100%;
@@ -51,7 +52,7 @@ const Span = styled.div`
   font-weight: 600;
 `;
 
-const PillWrapper = styled.div`
+const PillWrapper = styled.div<{ $type?: ISummaryType }>`
   display: flex;
   width: 80px;
   padding: 4px 8px;
@@ -61,7 +62,14 @@ const PillWrapper = styled.div`
   align-items: center;
   border-radius: 12px;
   font-size: 12px;
-
+  text-transform: capitalize;
+  ${({ $type }) =>
+    $type === "expense" &&
+    `
+       color: #f55d5d;
+       background: hsl(353.10638297872345, 100%, 46.07843137254902%, 0.15);
+       
+    `}
   @media (max-width: 450px) {
     padding: 4px;
     width: fit-content;
@@ -86,7 +94,9 @@ export const Transactions = () => {
         TransactionsHeader.forEach(({ format, key }) => {
           if (format === "jsx" && key === "category") {
             return (row[key] = () => (
-              <PillWrapper>{transaction[key]}</PillWrapper>
+              <PillWrapper $type={transaction[key]}>
+                {transaction[key]}
+              </PillWrapper>
             ));
           }
           if (format === "jsx" && key === "id") {
