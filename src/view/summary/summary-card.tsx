@@ -7,9 +7,8 @@ import { formatPrice } from "utils";
 const Container = styled.div`
   display: flex;
   width: 100%;
-  height: 138px;
   background-color: #1d1d41;
-  padding: 16px;
+  padding: 12px 16px;
   border-radius: 12px;
   display: flex;
   justify-content: space-between;

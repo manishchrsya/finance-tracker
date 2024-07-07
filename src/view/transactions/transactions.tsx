@@ -12,7 +12,7 @@ import { ISummaryType } from "view/summary/summary-card";
 
 const Container = styled.div`
   width: 100%;
-  height: calc(100vh - 596px);
+  height: calc(100vh - 496px);
   border-radius: 12px;
   background-color: #1d1d41;
   color: #ffffff;

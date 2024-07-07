@@ -48,6 +48,13 @@
       "category": "expense",
       "description": "Shopping",
       "date": "2024-07-07T01:49:53.321Z"
+    },
+    {
+      "id": "4e9cf2c5-585f-46aa-a63d-d49b8b03c2f8",
+      "amount": "100",
+      "category": "expense",
+      "description": "lunch",
+      "date": "2024-07-07T10:24:53.341Z"
     }
   ],
   "user": {

@@ -10,7 +10,7 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: 460px;
+  height: 360px;
   justify-content: space-between;
   gap: 20px;
 `;

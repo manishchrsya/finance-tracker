@@ -29,8 +29,10 @@ export const DonutChart: FC<IDonutChart> = ({ title, data }) => {
         text: title,
       },
     },
-    cutout: 100,
+    cutout: 50,
   };
 
-  return <Doughnut data={data} options={options as any} />;
+  return (
+    <Doughnut style={{ margin: "auto" }} data={data} options={options as any} />
+  );
 };

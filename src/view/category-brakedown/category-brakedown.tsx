@@ -4,10 +4,10 @@ import { useRecoilValue } from "recoil";
 import { TransactionsSelector } from "store";
 
 const Container = styled.div`
-  width: 420px;
-  height: 460px;
-  min-height: 460px;
-  min-width: 420px;
+  width: 500px;
+  height: 360px;
+  min-height: 360px;
+  min-width: 500px;
   border-radius: 12px;
   background-color: #1d1d41;
   padding: 20px;
