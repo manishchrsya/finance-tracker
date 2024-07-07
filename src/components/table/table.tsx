@@ -25,6 +25,11 @@ const TableBody = styled.tbody`
   gap: 12px;
   height: calc(100vh - 730px);
   overflow: auto;
+
+  @media (max-width: 900px) {
+    height: 100%;
+    overflow: visible;
+  }
 `;
 
 const TableRow = styled.tr`
@@ -43,6 +48,9 @@ const TableHeading = styled.th`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
   &:first-child {
     justify-content: flex-start;
   }
@@ -58,11 +66,29 @@ const TableData = styled.td`
   align-items: center;
   font-size: 16px;
   font-weight: 400;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
   &:first-child {
     justify-content: flex-start;
   }
   &:last-child {
     justify-content: flex-end;
+  }
+`;
+
+const TableDateCell = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @media (max-width: 450px) {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: unset;
   }
 `;
 
@@ -78,7 +104,9 @@ export const Table: FC<ITable> = ({ header, rows = [] }) => {
   const renderColumn = useMemo(
     () =>
       header.map(({ label, key }) => (
-        <TableHeading key={key}>{label}</TableHeading>
+        <TableHeading key={key}>
+          <TableDateCell>{label}</TableDateCell>
+        </TableHeading>
       )),
     [header]
   );
@@ -114,7 +142,11 @@ export const Table: FC<ITable> = ({ header, rows = [] }) => {
                 break;
             }
           }
-          return <TableData key={`${row.id}-${key}`}>{value}</TableData>;
+          return (
+            <TableData key={`${row.id}-${key}`}>
+              <TableDateCell>{value}</TableDateCell>
+            </TableData>
+          );
         })}
       </TableRow>
     ));

@@ -9,7 +9,7 @@ export const TransactionsHeader: ITableHeaderCell[] = [
   {
     label: "Transaction Id",
     key: "id",
-    format: "string",
+    format: "jsx",
   },
   {
     label: "Date",

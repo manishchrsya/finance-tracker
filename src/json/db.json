@@ -8,20 +8,6 @@
       "date": "2024-07-06T07:36:52.137Z"
     },
     {
-      "id": "65814bbe-2451-4b8e-81c5-e1fba75e8364",
-      "amount": "98263487263487623487623874627834",
-      "category": "expense",
-      "description": "iquwyehuiqew",
-      "date": "2024-07-06T13:18:47.214Z"
-    },
-    {
-      "id": "228a27f7-ea76-4f7a-b7c2-d8481d36d6e9",
-      "amount": "87152673815237615273512673123871236",
-      "category": "expense",
-      "description": "a,dhsbjka sdkahbsdjkas dkajsdbkja sdbajksdgba sdkahsdkjansd aksd",
-      "date": "2024-07-06T13:19:20.317Z"
-    },
-    {
       "id": "0afe5059-3cb7-49e2-a16f-0835256ed705",
       "amount": "2000",
       "category": "expense",
@@ -55,6 +41,13 @@
       "category": "expense",
       "description": "DSAsdasd",
       "date": "2024-07-06T19:01:45.264Z"
+    },
+    {
+      "id": "4a384f9a-11ea-4bcf-9385-d4fd712912ce",
+      "amount": "1000",
+      "category": "expense",
+      "description": "Shopping",
+      "date": "2024-07-07T01:49:53.321Z"
     }
   ],
   "user": {

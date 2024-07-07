@@ -29,8 +29,7 @@ export const DonutChart: FC<IDonutChart> = ({ title, data }) => {
         text: title,
       },
     },
-    // rotation: -90,
-    // circumference: 180,
+    cutout: 100,
   };
 
   return <Doughnut data={data} options={options as any} />;

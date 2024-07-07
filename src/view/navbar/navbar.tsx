@@ -9,6 +9,7 @@ import {
 } from "store";
 import styled from "styled-components";
 import { getFirstName } from "utils";
+import { mobileDevice } from "utils/media";
 import { AddTransaction } from "view/add-transaction";
 
 const NavContainer = styled.div`
@@ -18,8 +19,11 @@ const NavContainer = styled.div`
   align-items: center;
   padding: 16px 24px;
   height: 76px;
-  @media (max-width: 780px) {
+  @media (max-width: 900px) {
     height: 96px;
+    position: sticky;
+    top: 0;
+    background: #141332;
   }
 `;
 
@@ -40,13 +44,18 @@ const ActionWrapper = styled.div``;
 
 const ModalStyles: Styles = {
   content: {
-    width: 480,
+    width: mobileDevice.matches ? "unset" : 480,
     margin: "auto",
     backgroundColor: "#1d1d41",
     border: "unset",
-    height: "80vh",
+    height: mobileDevice.matches ? "unset" : "80vh",
     borderRadius: 12,
     padding: "unset",
+    top: mobileDevice.matches ? 0 : "50%",
+    bottom: mobileDevice.matches ? 0 : "unset",
+    left: mobileDevice.matches ? 0 : "50%",
+    right: mobileDevice.matches ? 0 : "unset",
+    transform: mobileDevice.matches ? "unset" : "translate(-50%, -50%)",
   },
 };
 

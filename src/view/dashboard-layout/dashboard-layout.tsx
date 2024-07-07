@@ -26,7 +26,7 @@ const SideBarWrapper = styled.div`
   height: 100%;
   background-color: #1d1d41;
 
-  @media (max-width: 780px) {
+  @media (max-width: 900px) {
     display: none;
   }
 `;
@@ -48,7 +48,7 @@ const BodyContainer = styled.div`
   gap: 20px;
   padding-bottom: 20px;
 
-  @media (max-width: 780px) {
+  @media (max-width: 900px) {
     padding: 0 20px 20px;
   }
 `;

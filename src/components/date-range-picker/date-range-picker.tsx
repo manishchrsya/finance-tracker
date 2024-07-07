@@ -25,7 +25,6 @@ const RangePicker = styled.div`
   border-radius: 8px;
   box-shadow: 0px 4px rgb(0 0 0 / 10%);
   position: absolute;
-
   bottom: 100%;
   right: 0;
   margin-bottom: -40px;
@@ -58,6 +57,14 @@ const RangePicker = styled.div`
   }
   .rdrDayPassive {
     opacity: 0.4;
+  }
+
+  @media (max-width: 450px) {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    min-width: 100%;
   }
 `;
 export const DateRangePicker: FC<IDateRangePicker> = ({

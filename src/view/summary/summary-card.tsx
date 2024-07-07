@@ -48,6 +48,12 @@ const ResultAmount = styled.div`
   font-size: 24px;
   font-weight: 600;
   color: #ffffff;
+
+  @media (max-width: 450px) {
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 `;
 
 const Span = styled.div`

@@ -15,12 +15,19 @@ const BodyContainer = styled.div`
   height: 100%;
   padding: 12px 32px;
   padding-top: 20px;
+
+  @media (max-width: 450px) {
+    gap: 24px;
+  }
 `;
 
 const TransactionForm = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  @media (max-width: 450px) {
+    gap: 20px;
+  }
 `;
 
 const FormFieldWrapper = styled.div`
@@ -29,6 +36,11 @@ const FormFieldWrapper = styled.div`
   align-items: center;
   width: 100%;
   gap: 16px;
+
+  @media (max-width: 450px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const FieldLabel = styled.label`
@@ -41,6 +53,11 @@ const FieldLabel = styled.label`
 const TransactionIllustration = styled.div`
   width: 240px;
   height: 240px;
+
+  @media (max-width: 450px) {
+    width: 180px;
+    height: 180px;
+  }
 `;
 
 export const AddTransactionBody = () => {
