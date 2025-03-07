@@ -133,7 +133,8 @@ export const Table: FC<ITable> = ({ header, rows = [] }) => {
                 value = value();
                 break;
               case "date":
-                value = formatDate(value, "MMM-dd-yyyy");
+                // value = formatDate(value, "MMM-dd-yyyy");
+                value = formatDate("", "")
                 break;
               case "price":
                 value = formatPrice(Number(value));

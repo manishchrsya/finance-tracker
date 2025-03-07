@@ -4,6 +4,9 @@ export const formatDate = (
   date: Date | string,
   format: string = "dd-MM-yyyy"
 ): string => {
+  if (format === "") {
+    return "Invalid date format"
+  }
   const dateTime =
     typeof date === "string"
       ? DateTime.fromISO(date)
@@ -28,3 +31,4 @@ export const getUtcMilliSecond = (
 
   return DateTime.fromISO(date).toUTC().toMillis();
 };
+
