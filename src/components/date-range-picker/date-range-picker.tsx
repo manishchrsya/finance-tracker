@@ -2,7 +2,7 @@ import type { IDateRangePicker } from "./type";
 
 import { FC, useCallback, MouseEvent, Fragment } from "react";
 import { DateRange, RangeKeyDict } from "react-date-range";
-import { Button } from "components";
+import { Button } from "../button";
 
 import styled from "styled-components";
 
@@ -84,7 +84,7 @@ export const DateRangePicker: FC<IDateRangePicker> = ({
 
   return (
     <Fragment>
-      <DateRangeOverlay onClick={handleClose} />
+      <DateRangeOverlay data-testid="date-range-overlay" onClick={handleClose} />
       <RangePicker>
         <DateRange
           editableDateInputs={true}

@@ -7,5 +7,5 @@ export const Loader: FC<LoaderSizeProps> = ({
   size = 80,
   ...props
 }) => {
-  return <RingLoader color={color} size={size} {...props} />;
+  return <RingLoader color={color} size={size} data-testid="loader" {...props} />;
 };

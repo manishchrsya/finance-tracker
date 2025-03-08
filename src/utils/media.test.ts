@@ -1,25 +1,8 @@
 // Here we are mocking the `matchMedia` function so that it can be available in the Node.js environment.
 // `window.matchMedia` is normally available in browsers, but Jest runs in a Node.js environment where it is not defined.
+import "../../jest.setup"
 
 describe("window.matchMedia mock tests", () => {
-
-  // `beforeAll` runs once before all test cases in this suite.
-  beforeAll(() => {
-    // Define `window.matchMedia` globally so it doesn't need to be mocked in every test.
-    Object.defineProperty(window, "matchMedia", {
-      writable: true, // Allows overriding the property
-      value: jest.fn().mockImplementation(query => ({
-        matches: false, // Default behavior: Simulating a non-mobile screen
-        media: query, // Stores the media query string
-        onchange: null, // Placeholder for event listener
-        addListener: jest.fn(), // Deprecated method, included for backward compatibility
-        removeListener: jest.fn(),
-        addEventListener: jest.fn(), // Modern alternative to `addListener`
-        removeEventListener: jest.fn(),
-        dispatchEvent: jest.fn(),
-      })),
-    });
-  });
 
   test("should detect mobile screen", () => {
     // Overriding `window.matchMedia` to simulate a mobile screen (max-width: 450px).
@@ -60,5 +43,3 @@ describe("window.matchMedia mock tests", () => {
   });
 
 });
-
-export { }

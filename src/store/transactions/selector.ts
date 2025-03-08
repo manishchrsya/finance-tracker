@@ -1,6 +1,6 @@
 import { selector } from "recoil";
 import { SelectedDateRangeState, TransactionsState } from "./state";
-import { getUtcMilliSecond } from "utils";
+import { getUtcMilliSecond } from "../../utils";
 
 export const TransactionsSelector = selector({
   key: "transactions-selector-key",

@@ -23,3 +23,5 @@ export const Button: FC<IButton> = ({ onClick, children, ...props }) => {
     </ButtonDiv>
   );
 };
+
+export {};
