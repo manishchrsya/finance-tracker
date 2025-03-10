@@ -43,3 +43,5 @@ describe("window.matchMedia mock tests", () => {
   });
 
 });
+
+export { }

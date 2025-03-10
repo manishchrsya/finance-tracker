@@ -174,13 +174,16 @@ const config: Config = {
 
   // A map from regular expressions to paths to transformers
   transform: {
-    "^.+\\.tsx?$": "ts-jest"
+    "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",
   },
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
-  // transformIgnorePatterns: [
-  //   "/node_modules/",
-  //   "\\.pnp\\.[^\\/]+$"
-  // ],
+  moduleNameMapper: {
+    "\\.(css|less|scss|sass)$": "identity-obj-proxy", // Mock styles
+  },
+  transformIgnorePatterns: [
+    "/node_modules/(?!date-fns|react-date-range)/", // Ensure dependencies are transpiled
+  ],
+
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,

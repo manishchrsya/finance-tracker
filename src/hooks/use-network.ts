@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { API_HOST } from "constant";
+import { API_HOST } from "../constant";
 
 interface FetchResponse<T = any> {
   data?: T;
@@ -14,9 +14,8 @@ const useNetwork = () => {
         const response = await fetch(`${API_HOST}/${url}`, options);
         const data = await response.json();
         return { data, status: response.status, message: "ok" };
-      } catch (error) {
-        const typedError = error as Error;
-        return { status: 500, data: typedError.message };
+      } catch (error: any) {
+        return { status: 500, data: error.message };
       }
     },
     []
@@ -62,7 +61,7 @@ const useNetwork = () => {
 
   const remove = useCallback(
     async (endpoint: string) => {
-      return await handleFetch(`endpoint}`, {
+      return await handleFetch(endpoint, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
