@@ -9,9 +9,8 @@ on:
       - master
 
 jobs:
-  build:
+  install_dependencies: 
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -24,9 +23,21 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+  running_testcases:
+    runs-on: ubuntu-latest
 
-      # - name: Run Tests
-        # run: npm test
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run Tests
+        run: npm test      
+  preparing_build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
       - name: Build Project
         run: npm run build
