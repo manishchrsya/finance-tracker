@@ -35,6 +35,9 @@ jobs:
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm install
+      
+      - name: Run Tests
+      run: npm test  
 
   running_testcases:
     runs-on: ubuntu-latest
