@@ -88,7 +88,7 @@ export const Transactions = () => {
 
   const renderRows = useMemo(() => {
     const rows: ITransactionsRowData[] = [];
-    transactions.forEach((transaction: ITransaction, index: number) => {
+    transactions.forEach((transaction: ITransaction) => {
       if (transaction) {
         let row = {} as ITransactionsRowData;
         TransactionsHeader.forEach(({ format, key }) => {

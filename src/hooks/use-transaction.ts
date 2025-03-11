@@ -29,8 +29,7 @@ export const useTransaction = () => {
     setTimeout(() => {
       setLoadingStatus(LOADING_STATUS.SUCCESS);
     }, 1000);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [errorNotification, get, setTransaction]);
 
   const createTransaction = useCallback(async () => {
     setLoadingStatus(LOADING_STATUS.LOADING);

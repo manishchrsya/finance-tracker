@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { DateRangePicker } from "./date-range-picker";
 import { IDateRangePicker } from "./type";
 import "@testing-library/jest-dom";

@@ -6,7 +6,7 @@ export interface ITableHeaderCell {
   format: ITableCellFormat;
 }
 
-export interface ITableRow {}
+export type ITableRow = any;
 
 export interface ITable {
   header: ITableHeaderCell[];
